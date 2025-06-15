@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+.clip-text {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -18,7 +22,11 @@ body {
   font-family: "Work Sans", sans-serif;
   background-color: var(--primary);
   color: var(--secondary);
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 h1,

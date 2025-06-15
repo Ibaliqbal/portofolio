@@ -3,7 +3,7 @@ import gsap from 'gsap';
 
 function updateCursor(e) {
   gsap.to(".cursor", {
-    duration: 1,
+    duration: 2,
     top: e.pageY + "px",
     left: e.pageX + "px",
     ease: "power3.out",
@@ -34,7 +34,8 @@ onUnmounted(() => {
   left: 50%;
   transform: translate(-50%, -50%);
   will-change: transform;
-  filter: blur(10px);
+  filter: blur(4px);
   pointer-events: none;
+  z-index: -10;
 }
 </style>
