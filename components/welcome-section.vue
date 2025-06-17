@@ -19,8 +19,6 @@ onMounted(() => {
   indexPosition.value = 0;
   currentPosition.value = positions[0];
 
-  gsap.registerPlugin(SplitText);
-
   const splitText = SplitText.create(".text", {
     type: "words,lines",
     linesClass: "clip-text",
@@ -52,7 +50,7 @@ watch(isDoneTextAnimation, (ready) => {
   if (ready) {
     intervalId = setInterval(() => {
       indexPosition.value = (indexPosition.value + 1) % positions.length;
-    }, 5000);
+    }, 3000);
   }
 });
 
@@ -98,7 +96,7 @@ onUnmounted(() => clearInterval(intervalId));
 }
 
 .introduce .text {
-  max-width: 95vw;
+  max-width: 100vw;
   text-align: center;
   text-transform: uppercase;
   position: absolute;

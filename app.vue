@@ -3,6 +3,8 @@ import { watchEffect } from "vue";
 import { VueLenis } from "lenis/vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrambleTextPlugin from "gsap/ScrambleTextPlugin";
+import { SplitText } from "gsap/SplitText";
 
 const lenisRef = useTemplateRef("lenisRef");
 
@@ -30,7 +32,7 @@ watchEffect((onInvalidate) => {
 
 // if using GSAP ScrollTrigger, remember to register the plugin
 onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin, SplitText);
 });
 </script>
 

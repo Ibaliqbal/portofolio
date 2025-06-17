@@ -4,8 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 onMounted(() => {
 
-  gsap.registerPlugin(ScrollTrigger, SplitText)
-
   const splitText = SplitText.create(".text-about-container p", {
     type: "words,lines",
     linesClass: "clip-text",
@@ -17,7 +15,7 @@ onMounted(() => {
 
   const animationText = gsap.from(splitText.words, {
     opacity: .2,
-    duration: 0.3,
+    duration: 0.5,
     stagger: 0.2
   })
 
@@ -28,7 +26,7 @@ onMounted(() => {
   })
 
   ScrollTrigger.create({
-    trigger: ".about",
+    trigger: ".container-about",
     start: "top bottom-=100",
     end: "bottom bottom-=10",
     scrub: true,
@@ -36,7 +34,7 @@ onMounted(() => {
   })
 
   ScrollTrigger.create({
-    trigger: ".about",
+    trigger: ".container-about",
     start: "center+=100 bottom-=100",
     end: "bottom bottom-=10",
     scrub: true,
@@ -47,29 +45,31 @@ onMounted(() => {
 
 <template>
   <section class="about">
-    <div class="profile-image-container">
-      <NuxtImg src="/profile.jpg" alt="My Profile" class="profile-image" />
-    </div>
-    <div class="text-about-container">
-      <p>
-        Hello, my name is
-        <a
-          href="https://linkedin.com/in/iqbal-muthahhary"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="name"
-        >
-          Iqbal Muthahhary
-        </a>
-        . I am an active university student based in Bogor, West Java,
-        Indonesia, with a strong passion for technology particularly in the
-        areas of web development and digital innovation. I have hands-on
-        experience working with modern frameworks such as React and Next.js, and
-        I am currently deepening my expertise in Vue, Nuxt, and Go (Golang). I
-        am highly motivated to continuously learn, develop efficient solutions,
-        and contribute to building clean, responsive, and user-focused digital
-        experiences.
-      </p>
+    <div class="container-about">
+      <div class="profile-image-container">
+        <NuxtImg src="/profile.jpg" alt="My Profile" class="profile-image" />
+      </div>
+      <div class="text-about-container">
+        <p>
+          Hello, my name is
+          <a
+            href="https://linkedin.com/in/iqbal-muthahhary"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="name"
+          >
+            Iqbal Muthahhary
+          </a>
+          . I am an active university student based in Bogor, West Java,
+          Indonesia, with a strong passion for technology particularly in the
+          areas of web development and digital innovation. I have hands-on
+          experience working with modern frameworks such as React and Next.js,
+          and I am currently deepening my expertise in Vue, Nuxt, and Go
+          (Golang). I am highly motivated to continuously learn, develop
+          efficient solutions, and contribute to building clean, responsive, and
+          user-focused digital experiences.
+        </p>
+      </div>
     </div>
   </section>
 </template>
@@ -77,14 +77,21 @@ onMounted(() => {
 <style scoped lang="css">
 .about {
   display: flex;
-  gap: 0.5rem;
   padding-block: 1.5rem;
-  min-height: 100vh;
+  min-height: 125vh;
   width: 100%;
   position: relative;
+  align-items: center;
 }
 
-.about div {
+.container-about {
+  display: flex;
+  gap: 0.5rem;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.container-about div {
   width: 50%;
   height: 100%;
 }

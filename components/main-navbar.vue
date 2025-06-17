@@ -8,20 +8,7 @@ const navigation = computed(() => [
     name: "projects",
     active: fullPath.value === "/projects",
   },
-  {
-    to: "/contact",
-    name: "contact",
-    active: fullPath.value === "/contact",
-  },
 ]);
-
-onMounted(() => {
-  const links = document.querySelectorAll(".link");
-
-  for (const link of links) {
-    link.addEventListener("pointerenter", scrambleHoverAnimation);
-  }
-});
 </script>
 
 <template>
@@ -31,11 +18,20 @@ onMounted(() => {
         <h1 class="title">balsss</h1>
       </NuxtLink>
       <nav>
+        <a
+          class="link"
+          href="/files/IQBAL MUTHAHHARY RESUME.pdf"
+          download="IQBAL MUTHAHHARY RESUME.pdf"
+          @pointerenter="scrambleHoverAnimation"
+        >
+          <span>download cv</span>
+        </a>
         <NuxtLink
           v-for="item in navigation"
           :key="item.name"
           :class="['link', { active: item.active }]"
           :to="item.to"
+          @pointerenter="scrambleHoverAnimation"
         >
           <span>{{ item.name }}</span>
         </NuxtLink>

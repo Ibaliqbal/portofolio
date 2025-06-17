@@ -1,46 +1,34 @@
 <script setup>
-import gsap from "gsap";
-import ScrambleTextPlugin from "gsap/ScrambleTextPlugin";
 
-onMounted(() => {
-  gsap.registerPlugin(ScrambleTextPlugin);
-
-  const links = document.querySelectorAll(".socials .link");
-
-  for (const link of links) {
-    link.addEventListener("pointerenter", scrambleHoverAnimation);
-  }
-});
+const socials = [
+  {
+    name: "instagram",
+    href: "https://instagram.com/muthahhary_iqbal",
+  },
+  {
+    name: "github",
+    href: "https://github.com/Ibaliqbal",
+  },
+  {
+    name: "linkedin",
+    href: "https://linkedin.com/in/iqbal-muthahhary",
+  },
+];
 </script>
 
 <template>
   <footer>
     <NuxtLink to="/" class="title">balss</NuxtLink>
     <ul class="socials">
-      <li class="link">
-        <a
-          href="https://instagram.com/muthahhary_iqbal"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          instagram
+      <li
+        v-for="social in socials"
+        :key="social.name"
+        class="link"
+        @pointerenter="scrambleHoverAnimation"
+      >
+        <a :href="social.href" target="_blank" rel="noopener noreferrer">
+          {{ social.name }}
         </a>
-      </li>
-      <li class="link">
-        <a
-          href="https://github.com/Ibaliqbal"
-          target="_blank"
-          rel="noopener noreferrer"
-          >github</a
-        >
-      </li>
-      <li class="link">
-        <a
-          href="https://linkedin.com/in/iqbal-muthahhary"
-          target="_blank"
-          rel="noopener noreferrer"
-          >linkedin</a
-        >
       </li>
     </ul>
   </footer>

@@ -1,5 +1,3 @@
-<script setup lang="js"></script>
-
 <template>
   <main class="default-layout">
     <MainNavbar />
