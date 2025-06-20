@@ -69,3 +69,37 @@ h6 {
   padding-inline: 1rem;
   /* max-width: 1400px; */
 }
+
+.preload {
+  color: var(--primary);
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  height: 100dvh;
+}
+
+.block-top-preload {
+  width: 100%;
+  background-color: var(--secondary);
+  height: 50%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.block-bottom-preload {
+  width: 100%;
+  background-color: var(--secondary);
+  height: 50%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+.preload .title {
+  font-size: 3em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

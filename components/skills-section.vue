@@ -1,7 +1,4 @@
 <script setup>
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 const fields = [
   {
     name: "frontend",
@@ -119,24 +116,6 @@ const fields = [
 ];
 
 const selectedImage = ref("question.png");
-
-onMounted(() => {
-  const animations = gsap.from(".text-skill", {
-    opacity: 0,
-    y: (i) => (i % 2 === 0 ? 10 : -10),
-    duration: 1.25,
-    stagger: {
-      each: 0.1,
-    },
-  });
-
-  ScrollTrigger.create({
-    trigger: ".skills",
-    start: "top bottom-=100",
-    scrub: false,
-    animation: animations,
-  });
-});
 </script>
 
 <template>
@@ -144,7 +123,7 @@ onMounted(() => {
     <h1>My Skills</h1>
     <div class="fields">
       <article v-for="field in fields" :key="field.name" class="field">
-        <h2 class="text-skill">{{ field.name }}</h2>
+        <h2>{{ field.name }}</h2>
         <div class="techstack">
           <p
             v-for="stack in field.techstack"

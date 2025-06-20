@@ -38,6 +38,7 @@ onMounted(() => {
 
 <template>
   <NuxtLayout>
+    <PreloadSection />
     <NuxtPage />
   </NuxtLayout>
   <VueLenis ref="lenisRef" root :options="{ autoRaf: false }" />

@@ -16,7 +16,8 @@ onMounted(() => {
   const animationText = gsap.from(splitText.words, {
     opacity: .2,
     duration: 0.5,
-    stagger: 0.2
+    stagger: 0.2,
+    filter: "blur(5px)"
   })
 
   const animationProfile = gsap.to(".profile-image", {
@@ -35,8 +36,8 @@ onMounted(() => {
 
   ScrollTrigger.create({
     trigger: ".container-about",
-    start: "center+=100 bottom-=100",
-    end: "bottom bottom-=10",
+    start: "bottom-=150 bottom-=100",
+    end: "bottom center+=100",
     scrub: true,
     animation: animationProfile
   })

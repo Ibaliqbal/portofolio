@@ -8,42 +8,68 @@ const indexPosition = ref(0);
 const currentPosition = ref(positions[0]);
 const positionEl = ref(null);
 let intervalId = null;
+const preload = usePreload();
 
 const isDoneTextAnimation = ref(false);
 
-onMounted(() => {
-  // await nextTick();
+function startTextAnimation() {
+  const splitText = SplitText.create(".text", {
+    type: "words,lines",
+    linesClass: "clip-text",
+    wordsClass: "words-welcome",
+  });
+
+  const tl = gsap.timeline();
+
+  tl.set(".text", {
+    perspective: 500,
+  });
+
+  tl.set(splitText.words, {
+    opacity: 0,
+  });
+
+  tl.to(".introduce .text", {
+    opacity: 1,
+  }).to(
+    splitText.words,
+    {
+      opacity: 1,
+      duration: 0.25,
+      ease: "power3.in",
+      stagger: {
+        each: 0.1,
+        from: "random",
+      },
+      onComplete: () => {
+        isDoneTextAnimation.value = true;
+      },
+    },
+    "<"
+  );
+}
+
+onMounted(async () => {
+  await nextTick();
 
   // Reset state
   isDoneTextAnimation.value = false;
   indexPosition.value = 0;
   currentPosition.value = positions[0];
 
-  const splitText = SplitText.create(".text", {
-    type: "words,lines",
-    linesClass: "clip-text",
-  });
-
-  gsap.set(".text", {
-    perspective: 500,
-  });
-  gsap.set(splitText.words, {
-    opacity: 0,
-  });
-
-  gsap.to(splitText.words, {
-    opacity: 1,
-    duration: 0.5,
-    ease: "power3.in",
-    stagger: {
-      each: 0.1,
-      from: "random",
-    },
-    onComplete: () => {
-      isDoneTextAnimation.value = true;
-    },
-  });
+  if (preload.value.hasPlayed) {
+    startTextAnimation();
+  }
 });
+
+watch(
+  () => preload.value.hasPlayed,
+  () => {
+    if (preload.value.hasPlayed) {
+      startTextAnimation();
+    }
+  }
+);
 
 // Start loop interval when ready
 watch(isDoneTextAnimation, (ready) => {
@@ -105,6 +131,7 @@ onUnmounted(() => clearInterval(intervalId));
   transform: translate(-50%, -50%);
   font-weight: 400;
   font-size: 1.95em;
+  opacity: 0;
 }
 
 .introduce .text span {

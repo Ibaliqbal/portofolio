@@ -3,5 +3,6 @@
     <WelcomeSection />
     <AboutSection />
     <SkillsSection />
+    <WannaSeeProjectsSection />
   </section>
 </template>
