@@ -87,25 +87,30 @@ watch(indexWords, () => {
         duration: 2,
         ease: "elastic.out(0.2, 0.8, 0.4)",
       })
+      .to(".divider-preload", {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power3",
+      })
       .to(".block-top-preload", {
         scaleY: 0,
         transformOrigin: "top",
-        duration: 1.5,
-        ease: "elastic.out(0.2, 1, 0.4)",
+        duration: 2,
+        ease: "elastic.out(0.2, 0.5, 0.4)",
       })
       .to(
         ".block-bottom-preload",
         {
           scaleY: 0,
           transformOrigin: "bottom",
-          duration: 1.5,
-          ease: "elastic.out(0.2, 1, 0.4)",
+          duration: 2,
+          ease: "elastic.out(0.2, 0.5, 0.4)",
           onComplete: () => {
             preload.value.hasPlayed = true;
             preload.value.isActive = false;
           },
         },
-        "<=.05"
+        "< 0.05"
       );
   }
 });

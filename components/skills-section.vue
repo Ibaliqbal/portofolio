@@ -163,14 +163,13 @@ const selectedImage = ref("question.png");
 }
 
 .field h2 {
-  font-family: "PP Editorial", sans-serif;
   text-transform: uppercase;
   font-size: 2em;
 }
 
 .skills h1 {
   font-size: 5rem;
-  font-family: "Canopee", sans-serif;
+  font-family: "Canopee";
 }
 
 .fields {

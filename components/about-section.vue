@@ -98,8 +98,36 @@ onMounted(() => {
 }
 
 .text-about-container {
-  font-size: 2.25rem;
+  font-size: 1.25rem; /* default untuk mobile */
   letter-spacing: -0.5px;
+}
+
+/* Tablet (≥768px) */
+@media (min-width: 768px) {
+  .text-about-container {
+    font-size: 1.5rem;
+  }
+}
+
+/* Laptop (≥1024px) */
+@media (min-width: 1024px) {
+  .text-about-container {
+    font-size: 1.75rem;
+  }
+}
+
+/* Desktop (≥1400px) */
+@media (min-width: 1400px) {
+  .text-about-container {
+    font-size: 1.85rem;
+  }
+}
+
+/* Ultra-wide screen (≥1600px) */
+@media (min-width: 1600px) {
+  .text-about-container {
+    font-size: 2.25rem;
+  }
 }
 
 .text-about-container p {
