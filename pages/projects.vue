@@ -72,6 +72,21 @@ const projects = [
     description:
       "This project is a Movie List web application built with Astro, React, Tailwind CSS, and Supabase. The app allows users to browse and manage a personalized list of movies. Astro handles fast static site generation, while React is used for interactive components. Tailwind CSS ensures a clean and responsive UI design. User authentication and data storage are managed by Supabase, enabling users to sign up, log in, and save their favorite movies securely.",
   },
+  {
+    name: "What'sNext",
+    live: "",
+    github: "",
+    techstack: [
+      "nuxt.js",
+      "tailwindcss",
+      "drizzle orm",
+      "postgresql",
+      "better-auth",
+    ],
+    image: "/whatsnext.png",
+    description:
+      "What’sNext is a Web Project Management application built with Nuxt, Drizzle ORM, PostgreSQL, and Tailwind CSS. It helps users plan, manage, and track projects and tasks with ease. Powered by Nuxt for a fast and dynamic frontend, Drizzle ORM for type-safe interaction with a PostgreSQL database, and styled with Tailwind CSS for a modern UI, What’sNext offers a clean and efficient experience focused on productivity and team collaboration.",
+  },
 ];
 
 const preload = usePreload();
@@ -124,27 +139,26 @@ watch(
       <article v-for="project in projects" :key="project.name" class="project">
         <div class="description-project">
           <h2 class="title-project">{{ project.name }}</h2>
-          <p>
+          <p class="text-project">
             {{ project.description }}
           </p>
           <div class="link-project">
-            <a
-              v-if="project.live"
-              :href="project.live"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="link"
-            >
-              live site
-            </a>
-            <a
-              :href="project.github"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="link"
-            >
-              github
-            </a>
+            <p v-if="project.live" class="link">
+              <GoToWebsite
+                :href="project.live"
+                :text="`site • ${project.name}`"
+              >
+                live site
+              </GoToWebsite>
+            </p>
+            <p v-if="project.github" class="link">
+              <GoToWebsite
+                :href="project.github"
+                :text="`github • ${project.name}`"
+              >
+                github
+              </GoToWebsite>
+            </p>
           </div>
           <div class="tech-stack">
             <p
@@ -207,7 +221,7 @@ watch(
   font-weight: bold;
 }
 
-.description-project p {
+.description-project .text-project {
   font-size: 1.2em;
   line-height: 1.6;
   max-width: 90%;

@@ -20,11 +20,12 @@ const navigation = computed(() => [
       <nav>
         <a
           class="link"
-          href="/files/IQBAL MUTHAHHARY RESUME.pdf"
-          download="IQBAL MUTHAHHARY RESUME.pdf"
+          href="http://localhost:3000/files/IQBAL MUTHAHHARY RESUME.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           @pointerenter="scrambleHoverAnimation"
         >
-          <span>download cv</span>
+          <span>my cv</span>
         </a>
         <NuxtLink
           v-for="item in navigation"
@@ -106,3 +107,6 @@ nav .link:hover {
   border-radius: 50%;
 }
 </style>
+
+<!-- href="/files/IQBAL MUTHAHHARY RESUME.pdf"
+          download="IQBAL MUTHAHHARY RESUME.pdf" -->

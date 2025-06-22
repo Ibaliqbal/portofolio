@@ -103,3 +103,32 @@ h6 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.page-transition {
+  color: var(--primary);
+  display: flex;
+  position: fixed;
+  z-index: 9999;
+  min-height: 100dvh;
+  width: 100%;
+  inset: 0;
+}
+
+.block-right-transition,
+.block-left-transition {
+  background-color: var(--secondary);
+  width: 50%;
+  height: 100%;
+  top: 0%;
+  transform: scaleY(0);
+  will-change: transform;
+  position: absolute;
+}
+
+.block-right-transition {
+  right: 0%;
+}
+
+.block-left-transition {
+  left: 0%;
+}

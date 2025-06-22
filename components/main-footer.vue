@@ -1,5 +1,4 @@
 <script setup>
-
 const socials = [
   {
     name: "instagram",
@@ -26,9 +25,9 @@ const socials = [
         class="link"
         @pointerenter="scrambleHoverAnimation"
       >
-        <a :href="social.href" target="_blank" rel="noopener noreferrer">
+        <GoToWebsite :href="social.href" :text="social.name">
           {{ social.name }}
-        </a>
+        </GoToWebsite>
       </li>
     </ul>
   </footer>
