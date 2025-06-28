@@ -68,6 +68,7 @@ svg {
     top: 30%; /* geser sedikit ke bawah jika perlu */
     left: 50%;
     width: 280px; /* lebih kecil di mobile */
+    opacity: 0;
   }
 }
 </style>

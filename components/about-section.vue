@@ -37,8 +37,8 @@ onMounted(() => {
 
   ScrollTrigger.create({
     trigger: ".container-about",
-    start: isMobile ? "top+=100 bottom-=100" : "top center+=100",
-    end: "top+=100 center+=100",
+    start: isMobile ? "top+=100 bottom-=100" : "top center-=100",
+    end: isMobile ? "top+=100 bottom-=100" : "top center-=100",
     scrub: false,
     animation: revealAnimationProfile,
   })
