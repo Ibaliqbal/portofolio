@@ -38,4 +38,11 @@ onUnmounted(() => {
   pointer-events: none;
   z-index: -10;
 }
+
+/* Tablet (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .cursor {
+    display: none;
+  }
+}
 </style>

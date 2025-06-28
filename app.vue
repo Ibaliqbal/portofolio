@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ScrambleTextPlugin from "gsap/ScrambleTextPlugin";
 import { SplitText } from "gsap/SplitText";
+import DrawSVGPlugin from "gsap/DrawSVGPlugin";
 
 const lenisRef = useTemplateRef("lenisRef");
 
@@ -32,7 +33,12 @@ watchEffect((onInvalidate) => {
 
 // if using GSAP ScrollTrigger, remember to register the plugin
 onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin, SplitText);
+  gsap.registerPlugin(
+    ScrollTrigger,
+    ScrambleTextPlugin,
+    SplitText,
+    DrawSVGPlugin
+  );
 });
 </script>
 

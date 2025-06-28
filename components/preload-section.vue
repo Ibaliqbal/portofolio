@@ -84,8 +84,8 @@ watch(indexWords, () => {
     })
       .to(".divider-preload", {
         scaleX: 1,
-        duration: 2,
-        ease: "elastic.out(0.2, 0.8, 0.4)",
+        duration: 1.5,
+        ease: "elastic.out(0.1, 0.5)",
       })
       .to(".divider-preload", {
         opacity: 0,
@@ -93,18 +93,16 @@ watch(indexWords, () => {
         ease: "power3",
       })
       .to(".block-top-preload", {
-        scaleY: 0,
-        transformOrigin: "top",
+        clipPath: "inset(0 0 100% 0)",
         duration: 2,
-        ease: "elastic.out(0.2, 0.5, 0.4)",
+        ease: "elastic.out(0.2, 0.5)",
       })
       .to(
         ".block-bottom-preload",
         {
-          scaleY: 0,
-          transformOrigin: "bottom",
+          clipPath: "inset(100% 0 0 0)",
           duration: 2,
-          ease: "elastic.out(0.2, 0.5, 0.4)",
+          ease: "elastic.out(0.2, 0.5)",
           onComplete: () => {
             preload.value.hasPlayed = true;
             preload.value.isActive = false;
@@ -151,7 +149,7 @@ watch(indexWords, () => {
   left: 0;
   transform: translateX(-50%);
   z-index: 2;
-  border-radius: 50%;
+  border-radius: 10px;
   transform: scaleX(0);
   transform-origin: left;
 }

@@ -12,6 +12,11 @@ const navigation = computed(() => [
     name: "projects",
     active: fullPath.value === "/projects",
   },
+  {
+    to: "/get-in-touch",
+    name: "get in touch",
+    active: fullPath.value === "/get-in-touch",
+  },
 ]);
 
 const socials = [
@@ -50,8 +55,7 @@ watch(openMenu, async (newValue) => {
         "<"
       )
       .from(".menu-mobile", {
-        scaleY: 0,
-        transformOrigin: "top",
+        clipPath: "inset(0 0 100% 0)",
         duration: 0.75,
         ease: "elastic.inOut(0.2, 0.5)",
       })
@@ -109,8 +113,7 @@ function handleClose() {
       "<=0.005"
     )
     .to(".menu-mobile", {
-      scaleY: 0,
-      transformOrigin: "top",
+      clipPath: "inset(0 0 100% 0)",
       duration: 0.75,
       ease: "elastic.inOut(0.2, 0.5)",
     })
@@ -202,9 +205,9 @@ async function movePath(e, to) {
 <style scoped>
 .overlay-menu-mobile {
   background-color: rgba(255, 255, 255, 0.4);
-  position: absolute;
+  position: fixed;
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
   inset: 0;
   z-index: 150;
   display: flex;
@@ -223,12 +226,18 @@ async function movePath(e, to) {
   position: relative;
 }
 
+@media screen and (max-width: 1024px) {
+  .menu-mobile {
+    border-bottom-left-radius: 0px;
+  }
+}
+
 .menu {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   text-transform: uppercase;
-  font-size: 1.5em;
+  font-size: 1.75em;
   font-weight: bold;
 }
 
@@ -258,10 +267,10 @@ async function movePath(e, to) {
   .menu-mobile {
     width: 100%;
     justify-content: flex-start;
+    height: 70%;
   }
 
   .menu {
-    font-size: 1.2em;
     margin-top: auto;
   }
 

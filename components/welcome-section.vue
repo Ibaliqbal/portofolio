@@ -111,6 +111,7 @@ onUnmounted(() => clearInterval(intervalId));
       <ArrowDown :size="24" :stroke-width="1.75" class="arrow-down" />
       <p>scroll</p>
     </div>
+    <PlaneSvg />
   </section>
 </template>
 
