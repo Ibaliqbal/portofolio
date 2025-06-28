@@ -75,6 +75,7 @@ onMounted(() => {
         <NuxtImg src="/profile.jpg" alt="My Profile" class="profile-image" />
       </div>
       <div class="text-about-container">
+        <h1>Who am i ?!</h1>
         <p>
           Hello, my name is
           <a
@@ -92,7 +93,7 @@ onMounted(() => {
           and I am currently deepening my expertise in Vue, Nuxt, and Go
           (Golang). I am highly motivated to continuously learn, develop
           efficient solutions, and contribute to building clean, responsive, and
-          user-focused digital experiences.
+          user focused digital experiences.
         </p>
       </div>
     </div>
@@ -122,9 +123,16 @@ onMounted(() => {
   height: 100%;
 }
 
-.text-about-container {
+.text-about-container p {
   font-size: 1.25rem; /* default untuk mobile */
   letter-spacing: -0.5px;
+}
+
+.text-about-container h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-family: "Canopee";
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
 }
 
 /* Tablet (≥768px) */
@@ -137,8 +145,12 @@ onMounted(() => {
     width: 100%;
   }
 
-  .text-about-container {
+  .text-about-container p {
     font-size: 1.5rem;
+  }
+
+  .text-about-container h1 {
+    margin-top: 0;
   }
 }
 
@@ -152,8 +164,12 @@ onMounted(() => {
     width: 50%;
   }
 
-  .text-about-container {
+  .text-about-container p {
     font-size: 1.75rem;
+  }
+
+  .text-about-container h1 {
+    margin-top: 0;
   }
 }
 
@@ -167,8 +183,12 @@ onMounted(() => {
     width: 50%;
   }
 
-  .text-about-container {
+  .text-about-container p {
     font-size: 1.85rem;
+  }
+
+  .text-about-container h1 {
+    margin-top: 0;
   }
 }
 
@@ -182,7 +202,7 @@ onMounted(() => {
     width: 50%;
   }
 
-  .text-about-container {
+  .text-about-container p {
     font-size: 2.25rem;
   }
 }
@@ -225,11 +245,11 @@ onMounted(() => {
 .profile-image {
   width: 100%;
   height: 100%;
+  z-index: 10;
   object-fit: cover;
   object-position: center;
   filter: grayscale(1);
   border-radius: 5px;
-  z-index: 10;
   transition: filter 0.3s ease;
   will-change: transform;
 }
