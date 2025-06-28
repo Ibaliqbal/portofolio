@@ -120,7 +120,7 @@ const selectedImage = ref("question.png");
 
 <template>
   <section class="skills">
-    <h1>My Skills</h1>
+    <h1>what i can ?</h1>
     <div class="fields">
       <article v-for="field in fields" :key="field.name" class="field">
         <h2>{{ field.name }}</h2>
@@ -164,11 +164,11 @@ const selectedImage = ref("question.png");
 
 .field h2 {
   text-transform: uppercase;
-  font-size: 2em;
+  font-size: clamp(1.25rem, 2.5vw, 2em);
 }
 
 .skills h1 {
-  font-size: 5rem;
+  font-size: clamp(2.5rem, 6vw, 5rem);
   font-family: "Canopee";
 }
 
@@ -183,7 +183,7 @@ const selectedImage = ref("question.png");
 .techstack {
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 1.25em;
+  font-size: clamp(0.75rem, 2vw, 1.25em);
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;

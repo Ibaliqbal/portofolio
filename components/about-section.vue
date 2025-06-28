@@ -3,45 +3,69 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 onMounted(() => {
+  const isMobile = window.innerWidth <= 767;
+  const isTablet = window.innerWidth > 767 && window.innerWidth <= 1024;
+  // const isDesktop = window.innerWidth > 1024;
 
   const splitText = SplitText.create(".text-about-container p", {
     type: "words,lines",
     linesClass: "clip-text",
-  })
+  });
 
   gsap.set(".text-about-container p", {
-    perspective: 500
-  })
+    perspective: 500,
+  });
 
   const animationText = gsap.from(splitText.words, {
-    opacity: .2,
+    opacity: 0.2,
     duration: 0.5,
     stagger: 0.2,
-    filter: "blur(5px)"
-  })
+    filter: "blur(5px)",
+  });
 
   const animationProfile = gsap.to(".profile-image", {
     scale: 1.2,
     duration: 1,
-    ease: "none"
-  })
+    ease: "none",
+  });
 
+  // ScrollTrigger Text Animation
   ScrollTrigger.create({
     trigger: ".container-about",
-    start: "top bottom-=100",
-    end: "bottom bottom-=10",
+    start: isMobile
+      ? "center bottom-=50"
+      : isTablet
+      ? "center bottom-=100"
+      : "top bottom-=150",
+    end: isMobile
+      ? "bottom bottom-=20"
+      : isTablet
+      ? "bottom bottom-=10"
+      : "bottom bottom",
     scrub: true,
-    animation: animationText
-  })
+    animation: animationText,
+  });
 
+  // ScrollTrigger Image Scale Animation
   ScrollTrigger.create({
     trigger: ".container-about",
-    start: "bottom-=150 bottom-=100",
-    end: "bottom center+=100",
+    start: isMobile
+      ? "bottom-=100 bottom-=50"
+      : isTablet
+      ? "bottom-=150 bottom-=100"
+      : "bottom-=200 bottom-=120",
+    end: isMobile
+      ? "bottom center"
+      : isTablet
+      ? "bottom center+=50"
+      : "bottom center+=100",
     scrub: true,
-    animation: animationProfile
-  })
-})
+    animation: animationProfile,
+  });
+
+  // Optional: Recalculate on resize
+  window.addEventListener("resize", () => ScrollTrigger.refresh());
+});
 </script>
 
 <template>
@@ -90,10 +114,11 @@ onMounted(() => {
   gap: 0.5rem;
   min-height: 100vh;
   width: 100%;
+  flex-direction: column;
 }
 
 .container-about div {
-  width: 50%;
+  width: 100%;
   height: 100%;
 }
 
@@ -104,6 +129,14 @@ onMounted(() => {
 
 /* Tablet (≥768px) */
 @media (min-width: 768px) {
+  .container-about {
+    flex-direction: column;
+  }
+
+  .container-about div {
+    width: 100%;
+  }
+
   .text-about-container {
     font-size: 1.5rem;
   }
@@ -111,6 +144,14 @@ onMounted(() => {
 
 /* Laptop (≥1024px) */
 @media (min-width: 1024px) {
+  .container-about {
+    flex-direction: row;
+  }
+
+  .container-about div {
+    width: 50%;
+  }
+
   .text-about-container {
     font-size: 1.75rem;
   }
@@ -118,6 +159,14 @@ onMounted(() => {
 
 /* Desktop (≥1400px) */
 @media (min-width: 1400px) {
+  .container-about {
+    flex-direction: row;
+  }
+
+  .container-about div {
+    width: 50%;
+  }
+
   .text-about-container {
     font-size: 1.85rem;
   }
@@ -125,6 +174,14 @@ onMounted(() => {
 
 /* Ultra-wide screen (≥1600px) */
 @media (min-width: 1600px) {
+  .container-about {
+    flex-direction: row;
+  }
+
+  .container-about div {
+    width: 50%;
+  }
+
   .text-about-container {
     font-size: 2.25rem;
   }
@@ -133,6 +190,7 @@ onMounted(() => {
 .text-about-container p {
   letter-spacing: -0.5;
 }
+
 .name {
   font-weight: 600;
   position: relative;

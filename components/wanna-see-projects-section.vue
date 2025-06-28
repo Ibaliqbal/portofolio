@@ -48,7 +48,6 @@ onUnmounted(() => {
 });
 
 function handlePointerEnter(e) {
-  
   scrambleAnimation(e.target, "yes, i wanna see that !!!", 3);
 }
 
@@ -77,7 +76,7 @@ function handlePointerLeave(e) {
 }
 
 .text {
-  font-size: 3em;
+  font-size: clamp(1rem, 5vw, 3em);
   text-transform: uppercase;
   font-family: "PP Editorial", serif;
 }

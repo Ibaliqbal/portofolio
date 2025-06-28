@@ -141,6 +141,7 @@ watch(indexWords, () => {
   z-index: 12;
   font-family: "PP Editorial", sans-serif;
 }
+
 .divider-preload {
   width: 100%;
   height: 2px;

@@ -37,7 +37,21 @@ watch(
           duration: 0.5,
           ease: "power3",
           onComplete: () => {
-            window.open(href, "_blank");
+            async function navigate() {
+              // will open 'https://nuxt.com' in a new tab
+              await navigateTo(href, {
+                open: {
+                  target: "_blank",
+                  windowFeatures: {
+                    width: 600,
+                    height: 600,
+                  },
+                },
+              });
+            }
+
+            navigate();
+
             setTimeout(() => {
               tl.to(".block-left-transition", {
                 scaleY: 0,
@@ -87,7 +101,7 @@ watch(
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3em;
+  font-size: clamp(1.5rem, 6vw, 3em);
   text-transform: uppercase;
   opacity: 0;
   z-index: 2;

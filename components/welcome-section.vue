@@ -77,10 +77,10 @@ watch(isDoneTextAnimation, (ready) => {
     intervalId = setInterval(() => {
       indexPosition.value = (indexPosition.value + 1) % positions.length;
     }, 3000);
+    // Watch for index changes to trigger scramble
   }
 });
 
-// Watch for index changes to trigger scramble
 watch(indexPosition, (newIdx) => {
   if (positionEl.value) {
     scrambleAnimation(
@@ -126,7 +126,7 @@ onUnmounted(() => clearInterval(intervalId));
   text-align: center;
   text-transform: uppercase;
   position: absolute;
-  top: 40%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-weight: 400;
@@ -166,6 +166,43 @@ onUnmounted(() => clearInterval(intervalId));
   50% {
     transform: none;
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/* Desktop besar > 1440px */
+@media screen and (min-width: 1441px) {
+  .introduce .text {
+    font-size: 2.5em;
+  }
+
+  .introduce .scroll {
+    font-size: 2rem;
+  }
+}
+
+/* Tablet (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .introduce .text {
+    font-size: 1.6em;
+    width: 100vw;
+    padding-inline: 1.5rem;
+  }
+
+  .introduce .scroll {
+    font-size: 1.2rem;
+  }
+}
+
+/* Phone (< 768px) */
+@media screen and (max-width: 767px) {
+  .introduce .text {
+    font-size: 1.1em;
+    width: 100vw;
+    padding-inline: 1.5rem;
+  }
+
+  .introduce .scroll {
+    font-size: 1rem;
   }
 }
 </style>

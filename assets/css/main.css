@@ -40,6 +40,10 @@ h6 {
   letter-spacing: -0.5px;
 }
 
+li {
+  list-style: none;
+}
+
 .link {
   position: relative;
 }
@@ -66,8 +70,7 @@ h6 {
 
 .main-container {
   margin-inline: auto;
-  padding: 4em 2em;
-  /* max-width: 1400px; */
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 2rem);
 }
 
 .preload {
@@ -97,7 +100,7 @@ h6 {
 }
 
 .preload .title {
-  font-size: 3em;
+  font-size: clamp(1.25rem, 6vw, 3em);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -131,4 +134,9 @@ h6 {
 
 .block-left-transition {
   left: 0%;
+}
+
+.menu-mobile {
+  background-color: var(--secondary);
+  color: var(--primary);
 }

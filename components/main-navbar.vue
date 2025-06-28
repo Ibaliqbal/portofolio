@@ -1,44 +1,12 @@
-<script setup>
-const route = useRoute();
-
-const fullPath = computed(() => route.fullPath);
-const navigation = computed(() => [
-  {
-    to: "/projects",
-    name: "projects",
-    active: fullPath.value === "/projects",
-  },
-]);
-</script>
-
 <template>
   <div class="header-wrapper">
     <header>
       <NuxtLink to="/">
         <h1 class="title">balsss</h1>
       </NuxtLink>
-      <nav>
-        <a
-          class="link"
-          href="http://localhost:3000/files/IQBAL MUTHAHHARY RESUME.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          @pointerenter="scrambleHoverAnimation"
-        >
-          <span>my cv</span>
-        </a>
-        <NuxtLink
-          v-for="item in navigation"
-          :key="item.name"
-          :class="['link', { active: item.active }]"
-          :to="item.to"
-          @pointerenter="scrambleHoverAnimation"
-        >
-          <span>{{ item.name }}</span>
-        </NuxtLink>
-      </nav>
-      <div class="divider" />
+      <MenuMobile />
     </header>
+    <div class="divider" />
   </div>
 </template>
 
@@ -49,7 +17,6 @@ const navigation = computed(() => [
   top: 0;
   left: 0;
   width: 100%;
-  /* padding-block: 1.25rem; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,20 +34,14 @@ header {
   background-color: #000000;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-nav .link {
+.menu .link {
   font-size: 1.25rem;
   font-weight: 400;
   transition: filter 0.3s ease, opacity 0.3s ease;
   text-transform: uppercase;
 }
 
-nav:hover .link {
+.menu:hover .link {
   filter: blur(3px);
   opacity: 0.5;
 }
@@ -90,7 +51,7 @@ nav:hover .link {
   transform-origin: left;
 }
 
-nav .link:hover {
+.menu .link:hover {
   filter: none;
   opacity: 1;
 }
@@ -105,6 +66,15 @@ nav .link:hover {
   background-color: #171717;
   width: 99%;
   border-radius: 50%;
+}
+
+.title,
+.toggle {
+  z-index: 160;
+}
+.toggle {
+  display: block;
+  text-transform: uppercase;
 }
 </style>
 

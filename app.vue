@@ -12,10 +12,10 @@ watchEffect((onInvalidate) => {
   if (!lenisRef.value?.lenis) return;
 
   //  if using GSAP ScrollTrigger, update ScrollTrigger on scroll
+  // this ensures Lenis's smooth scroll animation updates on each GSAP tick
   lenisRef.value.lenis.on("scroll", ScrollTrigger.update);
 
   // add the Lenis requestAnimationFrame (raf) method to GSAP's ticker
-  // this ensures Lenis's smooth scroll animation updates on each GSAP tick
   function update(time) {
     lenisRef.value.lenis.raf(time * 1000);
   }
