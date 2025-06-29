@@ -2,7 +2,7 @@
   <div class="header-wrapper">
     <header>
       <NuxtLink to="/">
-        <h1 class="title">balsss</h1>
+        <h1 class="title">balsss.</h1>
       </NuxtLink>
       <MenuMobile />
     </header>

@@ -17,7 +17,7 @@ const socials = [
 
 <template>
   <footer>
-    <NuxtLink to="/" class="title">balss</NuxtLink>
+    <NuxtLink to="/" class="title">balss.</NuxtLink>
     <ul class="socials">
       <li
         v-for="social in socials"

@@ -32,13 +32,13 @@ onMounted(() => {
   const revealAnimationProfile = gsap.from(".profile-image", {
     clipPath: "inset(0 0 100% 0)", // dari atas
     duration: .75,
-    ease: "power3.out",
+    ease: "power3",
   })
 
   ScrollTrigger.create({
     trigger: ".container-about",
-    start: isMobile ? "top+=100 bottom-=100" : "top center-=100",
-    end: isMobile ? "top+=100 bottom-=100" : "top center-=100",
+    start: isMobile ? "top center+=100" : "top+=10 center-=50",
+    end: isMobile ? "top center+=100" : "top+=10 center-=50",
     scrub: false,
     animation: revealAnimationProfile,
   })
