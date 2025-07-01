@@ -31,22 +31,32 @@ function startTextAnimation() {
 
   tl.to(".introduce .text", {
     opacity: 1,
-  }).to(
-    splitText.words,
-    {
-      opacity: 1,
-      duration: 0.25,
-      ease: "power3.in",
-      stagger: {
-        each: 0.1,
-        from: "random",
+  })
+    .to(
+      splitText.words,
+      {
+        opacity: 1,
+        duration: 0.25,
+        ease: "power3.in",
+        stagger: {
+          each: 0.1,
+          from: "random",
+        },
+        onComplete: () => {
+          isDoneTextAnimation.value = true;
+        },
       },
-      onComplete: () => {
-        isDoneTextAnimation.value = true;
+      "<"
+    )
+    .to(
+      ".lottie-plane",
+      {
+        opacity: 1,
+        duration: 0.5,
+        ease: "power3",
       },
-    },
-    "<"
-  );
+      "<=0.05"
+    );
 }
 
 onMounted(async () => {
@@ -120,6 +130,7 @@ onUnmounted(() => clearInterval(intervalId));
   min-height: 100vh;
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 .introduce .text {

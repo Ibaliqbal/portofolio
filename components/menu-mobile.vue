@@ -4,6 +4,7 @@ import gsap from "gsap";
 const openMenu = ref(false);
 
 const route = useRoute();
+const router = useRouter();
 
 const fullPath = computed(() => route.fullPath);
 const navigation = computed(() => [
@@ -59,6 +60,11 @@ watch(openMenu, async (newValue) => {
         duration: 0.75,
         ease: "elastic.inOut(0.2, 0.5)",
       })
+      .from(".foto-profile", {
+        clipPath: "inset(0 100% 0 0)",
+        duration: 0.75,
+        ease: "power3.out",
+      })
       .from(".socials-navbar li", {
         y: -20,
         duration: 0.5,
@@ -112,6 +118,11 @@ function handleClose() {
       },
       "<=0.005"
     )
+    .to(".foto-profile", {
+      clipPath: "inset(0 0 100% 0)",
+      duration: 0.75,
+      ease: "power3.out",
+    })
     .to(".menu-mobile", {
       clipPath: "inset(0 0 100% 0)",
       duration: 0.75,
@@ -133,10 +144,13 @@ function handleClose() {
     );
 }
 
-async function movePath(e, to) {
+function movePath(e, to) {
   e.preventDefault();
   handleClose();
-  await navigateTo(to);
+  if (!openMenu.value)
+    router.push({
+      name: to,
+    });
 }
 </script>
 
@@ -169,9 +183,9 @@ async function movePath(e, to) {
         <div class="menu">
           <a
             class="link"
-            href="/files/IQBAL MUTHAHHARY RESUME.pdf"
-            target="_blank"
+            href="https://drive.google.com/file/d/11m6JlPeZrxrvHiG89jB0sjb5nvGoM2yO/view?usp=drive_link"
             rel="noopener noreferrer"
+            target="_blank"
             @pointerenter="scrambleHoverAnimation"
           >
             <span>my cv</span>
@@ -197,23 +211,15 @@ async function movePath(e, to) {
             }}</GoToWebsite>
           </li>
         </ul>
+        <div class="foto-profile">
+          <NuxtImg src="/profile.jpg" alt="My Profile" class="profile-image" />
+        </div>
       </div>
     </section>
   </div>
 </template>
 
 <style scoped>
-.overlay-menu-mobile {
-  background-color: rgba(255, 255, 255, 0.4);
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  inset: 0;
-  z-index: 150;
-  display: flex;
-  justify-content: end;
-}
-
 .menu-mobile {
   height: 80dvh;
   width: 80%;
@@ -221,7 +227,6 @@ async function movePath(e, to) {
   flex-direction: column;
   align-items: flex-start;
   justify-content: end;
-  padding: 1.2rem 1rem;
   border-bottom-left-radius: 5px;
   position: relative;
 }
@@ -262,6 +267,26 @@ async function movePath(e, to) {
   font-size: 1rem;
 }
 
+.foto-profile {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 5px;
+  bottom: 1.2rem;
+  right: 1.25rem;
+  width: 200px;
+  height: 200px;
+}
+
+.foto-profile img {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(1);
+  border-radius: 5px;
+}
+
 /* === Responsive for Mobile Devices === */
 @media (max-width: 768px) {
   .menu-mobile {
@@ -287,6 +312,13 @@ async function movePath(e, to) {
     align-self: flex-end;
     margin-bottom: 1.5rem;
     font-size: 1rem;
+  }
+
+  .foto-profile {
+    top: 1.5rem;
+    left: 1.25rem;
+    width: 100px;
+    height: 100px;
   }
 }
 </style>

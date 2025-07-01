@@ -21,5 +21,6 @@
     "vue": "^3.5.16",
     "vue-router": "^4.5.1"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }

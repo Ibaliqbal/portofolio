@@ -31,7 +31,7 @@ onMounted(() => {
 
   const revealAnimationProfile = gsap.from(".profile-image", {
     clipPath: "inset(0 0 100% 0)", // dari atas
-    duration: .75,
+    duration: 1,
     ease: "power3",
   })
 

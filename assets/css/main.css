@@ -22,7 +22,7 @@ body {
   font-family: "Work Sans", sans-serif;
   background-color: var(--primary);
   color: var(--secondary);
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 body::-webkit-scrollbar {
@@ -137,7 +137,21 @@ li {
   left: 0%;
 }
 
-.menu-mobile {
+.menu-mobile,
+.content-skill {
   background-color: var(--secondary);
   color: var(--primary);
+  padding: 1.2rem 1rem;
+}
+
+.overlay-menu-mobile,
+.slide-skill-overlay {
+  background-color: rgba(255, 255, 255, 0.4);
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 140;
+  display: flex;
+  justify-content: end;
 }
