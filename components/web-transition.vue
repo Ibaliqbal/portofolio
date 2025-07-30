@@ -43,8 +43,8 @@ watch(
                 open: {
                   target: "_blank",
                   windowFeatures: {
-                    width: 600,
-                    height: 600,
+                    width: 1025,
+                    height: 1025,
                   },
                 },
               });

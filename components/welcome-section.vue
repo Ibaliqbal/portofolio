@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ArrowDown } from "lucide-vue-next";
 
-const positions = ["fullstack", "frontend"];
+const positions = ["creative", "frontend"];
 const indexPosition = ref(0);
 const currentPosition = ref(positions[0]);
 const positionEl = ref(null);
@@ -31,32 +31,22 @@ function startTextAnimation() {
 
   tl.to(".introduce .text", {
     opacity: 1,
-  })
-    .to(
-      splitText.words,
-      {
-        opacity: 1,
-        duration: 0.25,
-        ease: "power3.in",
-        stagger: {
-          each: 0.1,
-          from: "random",
-        },
-        onComplete: () => {
-          isDoneTextAnimation.value = true;
-        },
+  }).to(
+    splitText.words,
+    {
+      opacity: 1,
+      duration: 0.25,
+      ease: "power3.in",
+      stagger: {
+        each: 0.1,
+        from: "random",
       },
-      "<"
-    )
-    .to(
-      ".lottie-plane",
-      {
-        opacity: 1,
-        duration: 0.5,
-        ease: "power3",
+      onComplete: () => {
+        isDoneTextAnimation.value = true;
       },
-      "<=0.05"
-    );
+    },
+    "<"
+  );
 }
 
 onMounted(async () => {
@@ -109,8 +99,8 @@ onUnmounted(() => clearInterval(intervalId));
   <section class="introduce">
     <p class="text">
       Hai someone 🙌, welcome to my personal website. I&apos;m a passionate
-      <span>
-        <span ref="positionEl" class="position">{{ currentPosition }}</span>
+      <span class="position">
+        <span ref="positionEl">{{ currentPosition }}</span>
         developer
       </span>
       who loves crafting clean, modern, and responsive interfaces. Scroll down
@@ -146,7 +136,7 @@ onUnmounted(() => clearInterval(intervalId));
   opacity: 0;
 }
 
-.introduce .text span {
+.position {
   font-weight: 600;
   cursor: default;
 }

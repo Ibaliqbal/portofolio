@@ -5,15 +5,11 @@ import { SplitText } from "gsap/SplitText";
 onMounted(() => {
   const isMobile = window.innerWidth <= 767;
   const isTablet = window.innerWidth > 767 && window.innerWidth <= 1024;
-  // const isDesktop = window.innerWidth > 1024;
+
 
   const splitText = SplitText.create(".text-about-container p", {
     type: "words,lines",
     linesClass: "clip-text",
-  });
-
-  gsap.set(".text-about-container p", {
-    perspective: 500,
   });
 
   const animationText = gsap.from(splitText.words, {
@@ -21,6 +17,8 @@ onMounted(() => {
     duration: 0.5,
     stagger: 0.2,
     filter: "blur(5px)",
+    ease: "power3",
+
   });
 
   const animationProfile = gsap.to(".profile-image", {
@@ -29,18 +27,16 @@ onMounted(() => {
     ease: "none",
   });
 
-  const revealAnimationProfile = gsap.from(".profile-image", {
-    clipPath: "inset(0 0 100% 0)", // dari atas
-    duration: 1,
-    ease: "power3",
-  })
-
-  ScrollTrigger.create({
-    trigger: ".container-about",
-    start: isMobile ? "top center+=100" : "top+=10 center-=50",
-    end: isMobile ? "top center+=100" : "top+=10 center-=50",
-    scrub: false,
-    animation: revealAnimationProfile,
+  gsap.from(".profile-image", {
+    clipPath: "inset(0 0 100% 0)",
+    duration: 1.5,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".container-about",
+      start: "top center",
+      toggleActions: "play none none none",
+      scrub: false
+    }
   })
 
   // ScrollTrigger Text Animation
@@ -98,16 +94,28 @@ onMounted(() => {
             rel="noopener noreferrer"
             class="name"
           >
-            Iqbal Muthahhary
+            Iqbal Muthahhary </a
+          >. I am an active university student based in Bogor, West Java,
+          Indonesia, with a strong passion for technology particularly in web
+          development and digital innovation. I am currently focusing on
+          becoming a creative developer, specializing in building interactive
+          and full motion websites using GSAP. I’m actively working on an
+          open-source project called Creative Club, a personal initiative where
+          I explore modern web animation, interactive UI, and visual
+          storytelling through code. This project allows me to push the
+          boundaries of creative development while continuously improving my
+          skills in animation and frontend performance. I regularly share demos,
+          previews, and updates from Creative Club on
+          <a
+            href="https://instagram.com/muthahhary_iqbal"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="name"
+          >
+            Instagram
           </a>
-          . I am an active university student based in Bogor, West Java,
-          Indonesia, with a strong passion for technology particularly in the
-          areas of web development and digital innovation. I have hands-on
-          experience working with modern frameworks such as React and Next.js,
-          and I am currently deepening my expertise in Vue, Nuxt, and Go
-          (Golang). I am highly motivated to continuously learn, develop
-          efficient solutions, and contribute to building clean, responsive, and
-          user focused digital experiences.
+          to inspire others and document my progress in mastering expressive,
+          motion driven web experiences.
         </p>
       </div>
     </div>
@@ -138,7 +146,7 @@ onMounted(() => {
 }
 
 .text-about-container p {
-  font-size: 1.25rem; /* default untuk mobile */
+  font-size: 1rem;
   letter-spacing: -0.5px;
 }
 
@@ -149,7 +157,6 @@ onMounted(() => {
   margin-top: 1rem;
 }
 
-/* Tablet (≥768px) */
 @media (min-width: 768px) {
   .container-about {
     flex-direction: column;
@@ -160,7 +167,7 @@ onMounted(() => {
   }
 
   .text-about-container p {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   .text-about-container h1 {
@@ -168,7 +175,6 @@ onMounted(() => {
   }
 }
 
-/* Laptop (≥1024px) */
 @media (min-width: 1024px) {
   .container-about {
     flex-direction: row;
@@ -179,7 +185,7 @@ onMounted(() => {
   }
 
   .text-about-container p {
-    font-size: 1.75rem;
+    font-size: 1.45rem;
   }
 
   .text-about-container h1 {
@@ -187,7 +193,6 @@ onMounted(() => {
   }
 }
 
-/* Desktop (≥1400px) */
 @media (min-width: 1400px) {
   .container-about {
     flex-direction: row;
@@ -198,7 +203,7 @@ onMounted(() => {
   }
 
   .text-about-container p {
-    font-size: 1.85rem;
+    font-size: 1.65rem;
   }
 
   .text-about-container h1 {
@@ -206,7 +211,6 @@ onMounted(() => {
   }
 }
 
-/* Ultra-wide screen (≥1600px) */
 @media (min-width: 1600px) {
   .container-about {
     flex-direction: row;
@@ -217,7 +221,7 @@ onMounted(() => {
   }
 
   .text-about-container p {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 }
 

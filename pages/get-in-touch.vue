@@ -39,7 +39,7 @@
 
 <style scoped>
 .main-container {
-  min-height: 90dvh;
+  min-height: 80dvh;
   position: relative;
 }
 
@@ -51,13 +51,11 @@ section {
   padding: 2rem;
 }
 
-/* Default untuk desktop/tablet */
 section div {
   width: 50%;
   min-height: 100%;
 }
 
-/* ✅ Responsive untuk device ukuran ponsel */
 @media (max-width: 768px) {
   section {
     flex-direction: column;
@@ -94,7 +92,6 @@ section div:first-child p {
   gap: 1rem;
 }
 
-/* Responsive font size pakai clamp */
 .social {
   font-family: "Canopee", sans-serif;
   font-size: clamp(2rem, 6vw, 6rem);

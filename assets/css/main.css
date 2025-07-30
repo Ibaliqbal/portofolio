@@ -155,3 +155,9 @@ li {
   display: flex;
   justify-content: end;
 }
+
+.name,
+.position {
+  -webkit-text-fill-color: var(--primary);
+  -webkit-text-stroke: 0.5px var(--secondary);
+}

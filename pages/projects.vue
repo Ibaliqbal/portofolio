@@ -3,6 +3,15 @@ import gsap from "gsap";
 
 const projects = [
   {
+    name: "Creative Club",
+    live: "https://gsapcollection.vercel.app/",
+    github: "https://github.com/Ibaliqbal/gsap-collection/",
+    techstack: ["html", "css", "javascript", "gsap", "lenis"],
+    image: "/creative-club.png",
+    description:
+      "An open-source project designed to explore and showcase modern, interactive animations using the GSAP (GreenSock Animation Platform) library. This initiative was born out of a personal desire to sharpen and expand my animation development skills by creating visually engaging and dynamic web experiences. With a focus on clean design, smooth transitions, and immersive user interactions, Creative Club serves as both a creative outlet and atechnical playground for front-end experimentation. The project is structured to be easily understood and reused by others in the developer community, encouraging collaboration, learning, and further development.",
+  },
+  {
     name: "SolvedThis",
     live: "https://solvedthis.vercel.app",
     github: "https://github.com/Ibaliqbal/SolvedThis",
