@@ -161,3 +161,10 @@ li {
   -webkit-text-fill-color: var(--primary);
   -webkit-text-stroke: 0.5px var(--secondary);
 }
+
+@media (max-width: 768px) {
+  .name,
+  .position {
+    -webkit-text-stroke-width: 0.15px;
+  }
+}

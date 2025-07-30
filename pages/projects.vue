@@ -81,21 +81,6 @@ const projects = [
     description:
       "This project is a Movie List web application built with Astro, React, Tailwind CSS, and Supabase. The app allows users to browse and manage a personalized list of movies. Astro handles fast static site generation, while React is used for interactive components. Tailwind CSS ensures a clean and responsive UI design. User authentication and data storage are managed by Supabase, enabling users to sign up, log in, and save their favorite movies securely.",
   },
-  {
-    name: "What'sNext",
-    live: "",
-    github: "",
-    techstack: [
-      "nuxt.js",
-      "tailwindcss",
-      "drizzle orm",
-      "postgresql",
-      "better-auth",
-    ],
-    image: "/whatsnext.png",
-    description:
-      "What’sNext is a Web Project Management application built with Nuxt, Drizzle ORM, PostgreSQL, and Tailwind CSS. It helps users plan, manage, and track projects and tasks with ease. Powered by Nuxt for a fast and dynamic frontend, Drizzle ORM for type-safe interaction with a PostgreSQL database, and styled with Tailwind CSS for a modern UI, What’sNext offers a clean and efficient experience focused on productivity and team collaboration.",
-  },
 ];
 
 const preload = usePreload();

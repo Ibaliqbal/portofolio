@@ -29,8 +29,8 @@ onMounted(() => {
 
   gsap.from(".profile-image", {
     clipPath: "inset(0 0 100% 0)",
-    duration: 1.5,
-    ease: "power3.out",
+    duration: 2,
+    ease: "power4.out",
     scrollTrigger: {
       trigger: ".container-about",
       start: "top center",
@@ -43,14 +43,14 @@ onMounted(() => {
   ScrollTrigger.create({
     trigger: ".container-about",
     start: isMobile
-      ? "center bottom-=50"
+      ? "center center"
       : isTablet
-      ? "center bottom-=100"
-      : "top bottom-=150",
+      ? "center center"
+      : "top center",
     end: isMobile
-      ? "bottom bottom-=20"
+      ? "bottom center"
       : isTablet
-      ? "bottom bottom-=10"
+      ? "bottom center"
       : "bottom bottom",
     scrub: true,
     animation: animationText,
