@@ -24,13 +24,13 @@ onMounted(() => {
   const animationProfile = gsap.to(".profile-image", {
     scale: 1.2,
     duration: 1,
-    ease: "none",
+    ease: "power2.inOut",
   });
 
   gsap.from(".profile-image", {
     clipPath: "inset(0 0 100% 0)",
-    duration: 2,
-    ease: "power4.out",
+    duration: 1,
+    ease: "power4.inOut",
     scrollTrigger: {
       trigger: ".container-about",
       start: "top center",

@@ -90,19 +90,19 @@ watch(indexWords, () => {
       .to(".divider-preload", {
         opacity: 0,
         duration: 0.5,
-        ease: "power3",
+        ease: "power4.inOut",
       })
       .to(".block-top-preload", {
         clipPath: "inset(0 0 100% 0)",
         duration: 2,
-        ease: "elastic.out(0.2, 0.5)",
+        ease: "elastic.inOut(0.8, 1)",
       })
       .to(
         ".block-bottom-preload",
         {
           clipPath: "inset(100% 0 0 0)",
           duration: 2,
-          ease: "elastic.out(0.2, 0.5)",
+          ease: "elastic.inOut(0.8, 1)",
           onComplete: () => {
             preload.value.hasPlayed = true;
             preload.value.isActive = false;

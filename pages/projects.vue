@@ -4,7 +4,7 @@ import gsap from "gsap";
 const projects = [
   {
     name: "Creative Club",
-    live: "https://gsapcollection.vercel.app/",
+    live: "https://creativeclub.vercel.app/",
     github: "https://github.com/Ibaliqbal/gsap-collection/",
     techstack: ["html", "css", "javascript", "gsap", "lenis"],
     image: "/creative-club.png",
